@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EmployeeEF.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+
+    <p>
+        Username: @Html.TextBox("username") <br /><br />
+
+        Password: @Html.TextBox("password") <br /><br />
+
+
+        <input type="submit" value="Login" onclick="@Url.Action("Submit", "LoginController")" >
+
+
+</p>
+
+
+}
+
+<script src="/Scripts/jquery-1.10.2.js"></script>
+
+@if (ViewBag.Message != null)
+{
+    <script>
+                $(document).ready(function () {
+                    alert('@ViewBag.Message');
+                });
+    </script>
+    ViewBag.Message = null;
+}
+
+
